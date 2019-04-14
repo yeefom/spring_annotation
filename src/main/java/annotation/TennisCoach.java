@@ -4,6 +4,7 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -12,6 +13,9 @@ public class TennisCoach implements Coach, InitializingBean, DisposableBean {
     @Autowired
     @Qualifier("otherEquipmentService")
     private EquipmentService equipmentService;
+
+    @Value("${tennisCoach.team}")
+    private String team;
 
     // @Autowired
     // public TennisCoach(EquipmentService equipmentService) {
@@ -41,6 +45,10 @@ public class TennisCoach implements Coach, InitializingBean, DisposableBean {
     @Override
     public String getEquipment() {
         return equipmentService.getEquipment();
+    }
+
+    public String getTeam() {
+        return team;
     }
 
 }
