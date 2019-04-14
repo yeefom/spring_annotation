@@ -7,10 +7,10 @@ import org.springframework.stereotype.Component;
 public class TennisCoach implements Coach {
     private EquipmentService equipmentService;
 
-    @Autowired
-    public TennisCoach(EquipmentService equipmentService) {
-        this.equipmentService = equipmentService;
-    }
+    // @Autowired
+    // public TennisCoach(EquipmentService equipmentService) {
+    //     this.equipmentService = equipmentService;
+    // }
 
     @Override
     public String getWorkout() {
@@ -20,5 +20,10 @@ public class TennisCoach implements Coach {
     @Override
     public String getEquipment() {
         return equipmentService.getEquipment();
+    }
+
+    @Autowired
+    public void setEquipmentService(EquipmentService equipmentService) {
+        this.equipmentService = equipmentService;
     }
 }
