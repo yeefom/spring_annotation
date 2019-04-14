@@ -11,6 +11,8 @@ public class Main {
 
         System.out.println(coach.getWorkout());
 
+        System.out.println(coach.getEquipment());
+
         context.close();
     }
 }
